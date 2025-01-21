@@ -20,8 +20,15 @@
  */
 
 export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {
-  return [];
-};
+    return booleanArr.filter((element) => {
+        if (element === true) {
+            return element;
+      }
+  })};
+
+// export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {
+//     return booleanArr.filter((element) => element);
+// };
 
 /**
  * A function that takes an array of numbers that are between 0 and 1.
@@ -32,7 +39,10 @@ export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {
  */
 
 export const createPercentageList = (numbersArr: number[]): string[] => {
-  return [];
+      return numbersArr.map((n) => {
+          const p = n * 100;
+          return p.toString() + '%';
+      }) ;
 };
 
 /**
@@ -45,8 +55,17 @@ export const createPercentageList = (numbersArr: number[]): string[] => {
  */
 
 export const createListOfPossessions = (possessionsArr: string[], name: string): string[] => {
-  return [];
+      const possessionList = possessionsArr.map(possession => name + " " + possession);
+      return possessionList;
 };
+
+// export const createListOfPossessions = (possessionsArr: string[], name: string,): string[] => {
+//       return possessionsArr.map((item) => {
+//           return '${name} ${item}'; //gives me error should prefix name as expected//
+//       })
+// };
+
+
 
 /* Intermediate Challenges */
 
@@ -68,8 +87,15 @@ export const createListOfPossessions = (possessionsArr: string[], name: string):
  */
 
 export const convertStringToNumbersArray = (numberString: string): number[] => {
-  return [];
+      const splitString = numberString.split('+') //we use splitString to split the number into strings//
+      const numArr = splitString.map((str) => Number(str)); //map to return an equal array of numbers//
+      return numArr; //we use Number constructor to tell it s a string made of numbers, options were parseInt or parseFloat//
 };
+//or
+// export const convertStringToNumbersArray = (numberString: string): number[] => {
+//       return numberString.split('+').map((str) => Number(str));
+// };
+
 
 /**
  * A function that takes a string of numbers joined with a "+" and creates a new array based on if the number is even or odd.
@@ -80,7 +106,10 @@ export const convertStringToNumbersArray = (numberString: string): number[] => {
  */
 
 export const createOddEvenArray = (numberString: string): string[] => {
-  return [];
+      return numberString.split('+').map((str) => { //here i have indiv strings of numbers, map will give an array equal in length/
+        const num = Number(str); //declare num as my variable to check the value of even or odd//
+        return num % 2 === 0 ? 'even' : 'odd'; //using ternary op to determine if the condition ? true return : false return //
+      });
 };
 
 /**
@@ -92,8 +121,8 @@ export const createOddEvenArray = (numberString: string): string[] => {
  * @return {string[]} - ["The Google story"]
  */
 
-export const filterBooksBySearch = (booksArr: string[], searchTerm: string): string[] => {
-  return [];
+export const filterBooksBySearch = (booksArr: string[], searchTerm: string): string[] => { //we need to look through an array and return a certain value so use filter//
+      return booksArr.filter((book) => book.includes(searchTerm));//we use includes - to see if a word is present//
 };
 
 /* Advanced Challenges */
@@ -111,7 +140,7 @@ export const filterBooksBySearch = (booksArr: string[], searchTerm: string): str
  */
 
 export const formatStringArray = (stringArr: string[]) => {
-  const cleanedArr = stringArr.forEach(string => {
+  const cleanedArr = stringArr.map(string => {
     const cleanStr = string.trim().toLowerCase();
     return cleanStr;
   }) as unknown as string[];
@@ -135,8 +164,18 @@ export const formatStringArray = (stringArr: string[]) => {
  */
 
 export const formatString = (string: string): string[] => {
-  return [];
-};
+      const regex = /[a-zA-Z]/g; //RegEx(=patterns used to match character combinations in strings)has the value true if g flag present/ 
+      if (string.length === 0 || !regex.test(string)) return [] //test method executes a search for a match betw expression and string/
+
+      const arr = string.match(regex);// match will go through every char in the string, used with regex does a split on every character/
+      if(!arr) {
+         return [];
+      }
+       
+      return arr.map((char, index) => { //function map produces new array w char iterating from index and it returns/
+          return index % 2 === 0 ? char.toUpperCase() : char.toLowerCase();// in case of even index-upperCase, otherwise lower/
+      });
+ };
 
 /**
  * Expert Challenges
@@ -162,5 +201,20 @@ export const formatString = (string: string): string[] => {
  */
 
 export const fizzBuzz = (mixedArray: any[]): string[] => {
-  return [];
+    const cleanedArr = mixedArray.filter((item) => { //filter through array for all items that are.../
+        return item > 0; //...are positive numbers or pos numbers as strings/
+    });
+
+    const fizzBuzzArr = cleanedArr.map((item) => { //use map to go through all items and return same length array/
+        const num = typeof item === 'string' ? parseFloat(item) : item; //parseFloat converts a string to a number/
+        if (num % 15 === 0) {
+            return 'FizzBuzz';
+        } else if (num % 3 === 0){
+           return 'Fizz';
+        }else if (num % 5 === 0) {
+           return 'Buzz';
+        }
+        return item.toString();
+    });
+    return fizzBuzzArr;
 };

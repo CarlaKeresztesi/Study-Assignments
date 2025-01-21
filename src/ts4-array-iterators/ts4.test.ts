@@ -35,7 +35,7 @@ describe("Testing removeFalseValues()", () => {
   });
 });
 
-describe.skip("Testing createPercentageList()", () => {
+describe("Testing createPercentageList()", () => {
   it("Should convert numbers into percentages", () => {
     expect(createPercentageList(toBePercentages)).toEqual(percentages);
     expect(createPercentageList([0.25])).toEqual(["25%"]);
@@ -47,7 +47,7 @@ describe.skip("Testing createPercentageList()", () => {
   });
 });
 
-describe.skip("Testing createListOfPossessions()", () => {
+describe("Testing createListOfPossessions()", () => {
   it("Should prefix name as expected", () => {
     expect(createListOfPossessions(possessions, "Matt's")).toEqual(mattsPossessions);
     expect(createListOfPossessions(["shoes", "jacket", "belt"], "disco")).toEqual([
@@ -63,7 +63,7 @@ describe.skip("Testing createListOfPossessions()", () => {
   });
 });
 
-describe.skip("Testing convertStringToNumbersArray()", () => {
+describe("Testing convertStringToNumbersArray()", () => {
   it("Should convert string as expected", () => {
     expect(convertStringToNumbersArray(numbersCSV)).toEqual([5, 2, 55, 1990, 45, 15, 22]);
     expect(convertStringToNumbersArray("1+2")).toEqual([1, 2]);
@@ -80,7 +80,7 @@ describe.skip("Testing convertStringToNumbersArray()", () => {
   });
 });
 
-describe.skip("Testing createOddEvenArray()", () => {
+describe("Testing createOddEvenArray()", () => {
   it("Should convert string as expected", () => {
     expect(createOddEvenArray(numbersCSV)).toEqual(["odd", "even", "odd", "even", "odd", "odd", "even"]);
     expect(createOddEvenArray("1+2")).toEqual(["odd", "even"]);
@@ -97,7 +97,7 @@ describe.skip("Testing createOddEvenArray()", () => {
   });
 });
 
-describe.skip("Testing filterBooksBySearch()", () => {
+describe("Testing filterBooksBySearch()", () => {
   it("Should handle one match", () => {
     expect(filterBooksBySearch(["one thing"], "one thing")).toEqual(["one thing"]);
     expect(filterBooksBySearch(["a", "aa", "bb", "aaa", "b"], "bb").length).toBe(1);
@@ -125,7 +125,7 @@ describe.skip("Testing filterBooksBySearch()", () => {
   });
 });
 
-describe.skip("Testing formatStringArray()", () => {
+describe("Testing formatStringArray()", () => {
   it("Should remove whitespace", () => {
     expect(formatStringArray(["  front"])).toBe("front");
     expect(formatStringArray(["back "])).toBe("back");
@@ -147,7 +147,7 @@ describe.skip("Testing formatStringArray()", () => {
   });
 });
 
-describe.skip("Testing formatString()", () => {
+describe("Testing formatString()", () => {
   it("Should remove numbers", () => {
     expect(formatString("nu55mber77s").length).toBe(7);
     expect(formatString("1234567").length).toBe(0);
@@ -183,7 +183,7 @@ describe.skip("Testing formatString()", () => {
   });
 });
 
-describe.skip("Testing fizzBuzz()", () => {
+describe("Testing fizzBuzz()", () => {
   const cleanArray = Array(50)
     .fill(0)
     .map((_, index) => index + 1);
