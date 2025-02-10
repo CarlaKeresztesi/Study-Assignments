@@ -1,7 +1,7 @@
 package io.nology.j4_arrays_and_loops;
 
 import java.util.Arrays;
-import java.util.HashMap;
+
 
 public class Challenge {
 
@@ -42,9 +42,22 @@ public class Challenge {
      * 
      */
     public void printCharactersBetween(char start, char end) {
+          if (start > end) {
+              System.out.println("Start character should be less than or equal to end character");
+              return;
+          }
+          for (char c = start; c <= end; c++) {
+              System.out.println("Print the character with a space in between");
+          }
+        System.out.println();
+//          public static main void(String[] args) {
+//              CharacterPrinter printer = new CharacterPrinter;
+//
+//              printer.printCharactersBetween('A', 'P');
+//
+//              printer.printCharactersBetween('M', 'R');
+//        }//end of main
 
-
-        return;
     }
 
     /***
