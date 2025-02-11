@@ -11,6 +11,7 @@ public class ArrayListMethods2 {
             ArrayList<String> languages = new ArrayList<>();
             //.size()
             System.out.println(languages.size());
+
             //.isEmpty()
             System.out.println(languages.isEmpty());
 

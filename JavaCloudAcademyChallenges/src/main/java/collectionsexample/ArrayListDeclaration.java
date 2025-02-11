@@ -13,7 +13,7 @@ public class ArrayListDeclaration {
 
         List<Double> list4 = new ArrayList<>(); //ArrayList class implements the List interface --> polymorphism
 
-        Collection<String> list5 = new ArrayList<>();//List extends the Collection interface and the ArrayList implem
+        Collection<String> list5 = new ArrayList<>();//List extends the Collection interface and the ArrayList implem.
                                                 //the List too. So the ArrayList is a subclass of the List in Collection
 
         ArrayList list6 = new ArrayList();//here AL is an Object by default. We can add string, integer, any type etc

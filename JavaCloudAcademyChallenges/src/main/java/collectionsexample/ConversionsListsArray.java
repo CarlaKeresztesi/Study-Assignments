@@ -14,8 +14,10 @@ public class ConversionsListsArray {
         list1.add("Mercedes");
         list1.add("BMW");
         list1.add("Ford");
+
             //Object[] myArray = myList.toArray()
 //        Object[] array1 = list1.toArray(); //this method returns the object array so we have to assign a new array
+
             //Object[] myArray = new Object[myList.size()]    myArray = myList.toArray(myArray)
        // String[] array1 = new String[list1.size()];
         //String[] array1 = list1.toArray(new String[list1.size()]);
