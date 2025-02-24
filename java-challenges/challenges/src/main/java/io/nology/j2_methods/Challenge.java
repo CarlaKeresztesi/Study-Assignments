@@ -39,6 +39,7 @@ public class Challenge {
         }
         int digitCount = 0; //variable to track the digits
         char ch = 0; //variable to track the characters
+
         for (int i = 0; i < password.length(); i++) {
            ch = password.charAt(i); //to retrieve a character from a string in java
         }

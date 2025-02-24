@@ -1,8 +1,7 @@
 package io.nology.j8_hash_maps_and_streams;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Challenge {
 
@@ -17,9 +16,20 @@ public class Challenge {
      * @return A HashMap with words as keys and their occurrences as values
      */
     public HashMap<String, Integer> countWordOccurrences(String sentence) {
-        return new HashMap<>();
-    }
 
+        String[] words = sentence.split("\\s+"); //splitting sentence into words using the regex delimiter \\s+
+
+        HashMap<String, Integer> wordCount = new HashMap<>();
+        for (String word : words) {
+            //remove punctuation and convert to lower case for case insensitivity
+            word = word.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+            if (!word.isEmpty()) {
+                wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            }
+        }
+        return wordCount;
+    }
     /**
      * Merges two HashMaps containing student names and their scores. If a student
      * appears in both maps, the scores should be summed.
@@ -30,7 +40,14 @@ public class Challenge {
      *         maps
      */
     public HashMap<String, Integer> mergeStudentScores(HashMap<String, Integer> map1, HashMap<String, Integer> map2) {
-        return new HashMap<>();
+
+        HashMap<String, Integer> mergedMaps = new HashMap<String, Integer>(map1);
+
+        for (Map.Entry<String, Integer> entry : map2.entrySet()) {
+            mergedMaps.merge(entry.getKey(), entry.getValue(), Integer::sum);
+        }
+
+        return mergedMaps;
     }
 
     /**
@@ -44,7 +61,27 @@ public class Challenge {
      *                                  if the input is empty
      */
     public char findMostFrequentCharacter(String input) {
-        return 'a';
+
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("Input string must not be null or empty");
+        }
+
+        HashMap<Character, Integer> frequencyCheck = new HashMap<>();
+
+        char answer = input.charAt(0);
+        int count = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            frequencyCheck.put(ch, frequencyCheck.getOrDefault(ch, 0) + 1);
+
+            if (frequencyCheck.get(ch) > count) {
+                answer = ch;
+                count = frequencyCheck.get(ch);
+            }
+        }
+
+        return answer;
     }
 
     /**
@@ -54,7 +91,13 @@ public class Challenge {
      * @return The average length of the words
      */
     public double calculateAverageWordLength(List<String> words) {
-        return 1;
+
+        double averageLength = words.stream()
+                .mapToInt(String::length)
+                .average()
+                .orElse(0.0);
+
+        return averageLength;
     }
 
     /**
@@ -67,12 +110,20 @@ public class Challenge {
      */
     public List<Integer> filterPrimes(List<Integer> numbers) {
 
-        return new ArrayList<>();
-
+         return numbers.stream()
+                 .filter(n -> isPrime(n))
+                 .collect(Collectors.toList());
     }
 
-    boolean isPrime(int number) {
-
+    public boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -84,7 +135,8 @@ public class Challenge {
      * @return A single concatenated string
      */
     public String concatenateWithCommas(List<String> strings) {
-        return "";
+        return strings.stream()
+                .collect(Collectors.joining(", "));
     }
 
 }

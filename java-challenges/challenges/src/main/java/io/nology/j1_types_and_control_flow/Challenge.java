@@ -111,7 +111,7 @@ public class Challenge {
     /***
      * A method to check whether a word has an even length or not.
      *
-     * If a empty string is given it should return false.
+     * If an empty string is given it should return false.
      *
      * @param word a String to be checked whether the string has an even length or
      *             not.

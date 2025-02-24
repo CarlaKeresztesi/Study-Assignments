@@ -28,7 +28,7 @@ public class ChallengeTest {
 
     @Test
     public void testCountWordOccurrences() {
-        String sentence = "This is a test. This test is only a test.";
+        String sentence = "This is a test . This test is only a test .";
         HashMap<String, Integer> expected = new HashMap<>();
         expected.put("this", 2);
         expected.put("is", 2);

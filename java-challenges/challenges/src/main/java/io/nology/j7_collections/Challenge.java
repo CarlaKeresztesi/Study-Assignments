@@ -1,6 +1,7 @@
 package io.nology.j7_collections;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Challenge {
@@ -15,7 +16,19 @@ public class Challenge {
      * @return Reversed list
      */
     public List<String> reverseList(List<String> items) {
-        return new ArrayList<>();
+
+        List<String> modifiableList = new ArrayList<>(items);
+
+        int n = modifiableList.size();
+
+        for (int i = 0; i < n / 2; i++) { //iterating halfway
+            String temp = modifiableList.get(i);
+            modifiableList.set(i, modifiableList.get(n - i - 1));
+            modifiableList.set(n - i - 1, temp);
+        }
+
+        return modifiableList;
+
     }
 
     /**
@@ -26,7 +39,15 @@ public class Challenge {
      * @throws IllegalArgumentException ("List is empty") if the list is empty
      */
     public int findMaxValue(List<Integer> numbers) {
-        return 1;
+        if (numbers.isEmpty()) {
+            throw new IllegalArgumentException("List is empty");
+        } else if (numbers.size() == 1) {
+            return numbers.get(0);
+        } else {
+            return Collections.max(numbers);
+
+        }
+
     }
 
     /**
@@ -37,7 +58,11 @@ public class Challenge {
      * @return Rotated list
      */
     public List<String> rotateListRight(List<String> items, int positions) {
-        return new ArrayList<>();
-    }
 
+        List<String> rotatedList = new ArrayList<>(items);
+
+        Collections.rotate(rotatedList, positions);
+        return rotatedList;
+    }
 }
+
