@@ -157,7 +157,7 @@ public class Challenge {
 
         for (int i = 1; i < array.length; i++) {
             maxEnding = Math.max(maxEnding + array[i], array[i]);
-
+                //The Math.max() method compares the variable maxEnding with all elements of the array and assigns the maximum value to maxEnding.
             result = Math.max(result, maxEnding);
         }
         return result;
@@ -171,10 +171,10 @@ public class Challenge {
      * @throws IllegalArgumentException if n is negative
      */
     public int calculateFactorial(int n) {
-        if (n < 0) {
+        if (n < 0) {  //factorial = the product of all numbers from 1 to n
             throw new IllegalArgumentException("n is negative");
         }
-
+        //using recursion = making a function call itself
         if (n == 0) {
             return 1;
         }
