@@ -3,6 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class WorkingWithArrays {
+
     //Challenge:
 
     //Prompt the user to input 5 integers;
