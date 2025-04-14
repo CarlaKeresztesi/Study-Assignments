@@ -21,6 +21,12 @@ public class Challenge {
     public void print2DArray(int rows, int columns) {
         int[][] array = new int[rows][columns];
 
+        Random random = new Random();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                array[i][j] = random.nextInt(100);
+            }
+        }
         
 
     }
