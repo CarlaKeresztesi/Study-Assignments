@@ -19,7 +19,9 @@ public class Challenge {
      *         67 34 89 75
      */
     public void print2DArray(int rows, int columns) {
-      
+        int[][] array = new int[rows][columns];
+
+        
 
     }
 
