@@ -1,5 +1,7 @@
 package io.nology.j5_arrays_extended;
 
+import java.util.Random;
+
 public class Challenge {
     public Challenge() {
     }
@@ -17,7 +19,7 @@ public class Challenge {
      *         67 34 89 75
      */
     public void print2DArray(int rows, int columns) {
-        return;
+      
 
     }
 
