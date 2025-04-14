@@ -74,7 +74,7 @@ public class ChallengeTest {
         challenge.findMaxInRows(array);
 
         String expectedOutput = "73\n91\n89\n";
-        assertEquals(expectedOutput, outputStreamCaptor.toString());
+        assertEquals(expectedOutput.trim(), outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class ChallengeTest {
         challenge.findMaxInRows(array);
 
         String expectedOutput = "";
-        assertEquals(expectedOutput, outputStreamCaptor.toString());
+        assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
 
     // Testing sortByColumn

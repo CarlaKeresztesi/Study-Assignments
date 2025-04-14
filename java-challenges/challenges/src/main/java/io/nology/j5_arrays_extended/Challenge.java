@@ -38,7 +38,7 @@ public class Challenge {
     /**
      * Finds and prints the maximum element in each row of a 2D array.
      *
-     * @param array2 the 2D array of integers
+     * @param array the 2D array of integers
      *              14 73 28 42
      *              39 91 19 46
      *              67 34 89 75
@@ -49,12 +49,20 @@ public class Challenge {
      *         91
      *         89
      */
-    public void findMaxInRows(int[][] array2) {
-        for (int i = 0; i < array2.length; i++) {
-            int max = array2[i][0];
-            for (int j = 0; j < array2[i].length; j++) {
-                if (array2[i][j] > max) {
-                    max = array2[i][j];
+    public void findMaxInRows(int[][] array) {
+        if (array == null || array.length == 0) {
+            return;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length == 0) {
+                continue;
+            }
+
+            int max = array[i][0];
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > max) {
+                    max = array[i][j];
                 }
             }
             System.out.println(max);
