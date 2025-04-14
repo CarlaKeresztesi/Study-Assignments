@@ -27,8 +27,11 @@ public class Challenge {
                 array[i][j] = random.nextInt(100);
             }
         }
-        
-
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.println(array[i][j] + " ");
+            }
+            System.out.println();
     }
 
     /**
